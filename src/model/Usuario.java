@@ -34,8 +34,7 @@ public class Usuario extends Conta {
             System.out.println("3 - Realizar transferência bancária");
             System.out.println("4 - Realizar investimento");
             System.out.println("5 - Visualizar meus investimentos");
-            System.out.println("6 - Realizar pagamento de boleto");
-            System.out.println("7 - Acessar serviços de assessoria financeira");
+            System.out.println("6 - Acessar serviços de assessoria financeira");
             System.out.println("0 - Sair");
             System.out.println("--------------------------------------------------");
             int opcao = objInput.nextInt();
@@ -102,10 +101,7 @@ public class Usuario extends Conta {
             		this.visualizarInvestimentos();
             		break;
             	case 6:
-            		// realizar investimento
-            		break;
-            	case 7:
-            		// realizar investimento
+            		System.out.println("SISTEMA NÃO IMPLEMENTADO!");
             		break;
            }
 		}

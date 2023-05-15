@@ -9,6 +9,7 @@ public class Usuario extends Conta {
 	private Scanner objInput;
 	private String nome;
 	private String email;
+	private String cpf;
 	private boolean isLogado;
 	private Date loginDate = new Date();
 	private DateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy HH:mm:ss");
@@ -77,22 +78,22 @@ public class Usuario extends Conta {
             		break;
             	case 4:
             		System.out.println("Onde você deseja realizar o seu investimento? ");
-            		System.out.println("1 - Investimento 1 (Rentabilidade de 3,11% - RISCO III)");
-                    System.out.println("2 - Investimento 2 (Rentabilidade de 2,50% - RISCO II)");
-                    System.out.println("3 - Investimento 3 (Rentabilidade de 1,10% - RISCO I)");
+            		System.out.println("1 - CDB (Rentabilidade de 3,11% - RISCO III)");
+                    System.out.println("2 - LCI (Rentabilidade de 2,50% - RISCO II)");
+                    System.out.println("3 - Tesouro Selic (Rentabilidade de 1,10% - RISCO I)");
                     opcao = objInput.nextInt();
                     if (opcao == 1) {
                         System.out.println("Qual o valor: ");
                 		double valorInvestimento = objInput.nextDouble();
-                    	this.realizarInvestimento(valorInvestimento, 0.0311, "Risco III");
+                    	this.realizarInvestimento("CDB", valorInvestimento, 0.0311, "Risco III");
                     } else if (opcao == 2) {
                     	System.out.println("Qual o valor: ");
                 		double valorInvestimento = objInput.nextDouble();
-                    	this.realizarInvestimento(valorInvestimento, 0.025, "Risco II");
+                    	this.realizarInvestimento("LCI", valorInvestimento, 0.025, "Risco II");
                     } else if (opcao == 3) {
                     	System.out.println("Qual o valor: ");
                 		double valorInvestimento = objInput.nextDouble();
-                    	this.realizarInvestimento(valorInvestimento, 0.0110, "Risco I");
+                    	this.realizarInvestimento("Tesouro Selic", valorInvestimento, 0.0110, "Risco I");
                     } else {
                     	System.out.println("OPÇÃO INCORRETA! Escolha alguma das opções");
                     }
@@ -158,5 +159,13 @@ public class Usuario extends Conta {
 
 	public void setLogado(boolean isLogado) {
 		this.isLogado = isLogado;
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}	
 }

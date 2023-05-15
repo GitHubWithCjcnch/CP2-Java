@@ -35,7 +35,7 @@ public class Conta extends Sistema {
 		}
 	}
 	
-	public void realizarInvestimento(double valorInvestimento, double taxa, String risco) {
+	public void realizarInvestimento(String nome, double valorInvestimento, double taxa, String risco) {
 		Timer timer = new Timer();
 	    if (saldo < valorInvestimento) {
 	        System.out.println("Você não possui saldo suficiente para este investimento.");
@@ -49,8 +49,8 @@ public class Conta extends Sistema {
 	        };
 	        String infoInvestimento = String.format("Investimento: R$%.2f (Taxa: %.2f%%) - Rendimento: R$%.2f a cada 15 dias.", valorInvestimento, taxa * 100, rendimento);
 	        adicionarInvestimento(infoInvestimento);
-	        Transacao transacao = new Transacao("Investimento na com " + risco, valorInvestimento, "Investimento em conta", new Date());
-	        adicionarTransacao(transacao.mostrarInfoTransacao());
+	        TipoInvestimento investimento = new TipoInvestimento(nome, valorInvestimento, taxa, "Investimento em conta", new Date());
+	        adicionarInvestimento(investimento.mostrarInfoInvestimento());
 	        timer.schedule(tarefa, (1000*86)*15, (1000*86)*15); // vai aplicar o investimento a cada 15 dias.
 	        // Como o investimento não vai ter alterações em relação ao seu risco, o risco é fixo.
 	    }

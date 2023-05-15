@@ -13,7 +13,6 @@ public class Administrador extends Conta {
 	}
 	
 	public void exibirMenu() {
-		
 		setLogado(true);
 		while(Sistema.isUserLogged()) {
 			System.out.println("--------------------------------------------------");
@@ -39,6 +38,10 @@ public class Administrador extends Conta {
             		break;
            }
 		}
+	}
+	
+	public void bloquearConta(Conta conta) {
+		
 	}
 	
 	public String getUsername() {
